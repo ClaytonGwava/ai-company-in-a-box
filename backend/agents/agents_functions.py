@@ -1,11 +1,9 @@
-# agents_functions.py
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
 from typing import List
 from dotenv import load_dotenv
 load_dotenv()
 
-# Create a single LLM instance
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.3)  
 
 async def analyst_agent(idea: str, context: List[str]) -> str:
