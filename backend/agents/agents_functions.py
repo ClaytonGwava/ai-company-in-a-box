@@ -9,7 +9,7 @@ llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.3)
 async def analyst_agent(idea: str, context: List[str]) -> str:
     system_prompt = (
         "You are a business analyst. Perform market sizing, competitor scan, pricing options, "
-        "and success metrics (leading+lagging)."
+        "and success metrics (leading+lagging).Use only 50 words"
     )
     user_prompt = f"Objective: {idea}\nContext:\n- " + "\n- ".join(context)
     result = await llm.agenerate([[
@@ -21,7 +21,7 @@ async def analyst_agent(idea: str, context: List[str]) -> str:
 async def ceo_agent(idea: str, context: List[str]) -> str:
     system_prompt = (
         "You are the CEO. Define product vision, problem statement, target users, "
-        "value proposition, roadmap (MVP -> v1.0), and key risks."
+        "value proposition, roadmap (MVP -> v1.0), and key risks.Use only 50 words"
     )
     user_prompt = f"Objective: {idea}\nContext:\n- " + "\n- ".join(context)
     result = await llm.agenerate([[
@@ -33,7 +33,7 @@ async def ceo_agent(idea: str, context: List[str]) -> str:
 async def engineer_agent(idea: str, context: List[str]) -> str:
     system_prompt = (
         "You are a senior software engineer. Produce an MVP technical plan: "
-        "architecture diagram in text, API design, database schema, and a runnable code snippet."
+        "architecture diagram in text, API design, database schema, and a runnable code snippet.Use only 50 words"
     )
     user_prompt = f"Objective: {idea}\nContext:\n- " + "\n- ".join(context)
     result = await llm.agenerate([[
@@ -45,7 +45,7 @@ async def engineer_agent(idea: str, context: List[str]) -> str:
 async def designer_agent(idea: str, context: List[str]) -> str:
     system_prompt = (
         "You are a product designer. Create a UX brief: user personas, primary user flows, "
-        "and 3 UI mockup prompts for an image model."
+        "and 3 UI mockup prompts for an image model.Use only 50 words"
     )
     user_prompt = f"Objective: {idea}\nContext:\n- " + "\n- ".join(context)
     result = await llm.agenerate([[
@@ -57,7 +57,7 @@ async def designer_agent(idea: str, context: List[str]) -> str:
 async def marketing_agent(idea: str, context: List[str]) -> str:
     system_prompt = (
         "You are a growth marketer. Write: positioning statement, 3 ICP profiles, a 7-day launch plan, "
-        "and 1 LinkedIn post + 1 email copy."
+        "and 1 LinkedIn post + 1 email copy.Use only 50 words"
     )
     user_prompt = f"Objective: {idea}\nContext:\n- " + "\n- ".join(context)
     result = await llm.agenerate([[
